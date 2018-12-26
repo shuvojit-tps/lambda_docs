@@ -19,7 +19,6 @@ def lambda_handler(event, context):
     for param in res["Parameters"]:
         db_config[param['Name'].split('/')[-1]] = param['Value']
     
-    print(format(db_config))
     # connect to RDS using SSM Parameters
     try:
         conn = pymysql.connect(db_config['host'], user=db_config['user'],passwd=db_config['password'], db=db_config['db_name'], connect_timeout=5)
