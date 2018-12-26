@@ -1,4 +1,4 @@
-## Using Layers to sepearate code and dependencies
+## Using Layers to seperate code and dependencies
 Usual use case would be to reduce function size and reusablity for libraries and custom modules.
 
 #### Create a directory for dependencies and replicate a python lib directory structure 
