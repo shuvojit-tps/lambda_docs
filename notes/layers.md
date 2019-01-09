@@ -1,3 +1,7 @@
+# TLDR;
+1. [Dependency Layer](#1-using-layers-to-seperate-code-and-dependencies)
+2. [Data Layer](2-using-lambda-to-create-datalayer)
+
 # 1. Using Layers to seperate code and dependencies
 
 Usual use case would be to reduce function size and reusablity for libraries and custom modules.
