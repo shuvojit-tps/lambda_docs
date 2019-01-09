@@ -1,6 +1,7 @@
 # TLDR;
+
 1. [Dependency Layer](#1-using-layers-to-seperate-code-and-dependencies)
-2. [Data Layer](2-using-lambda-to-create-datalayer)
+2. [Data Layer](#2-using-lambda-to-create-datalayer)
 
 # 1. Using Layers to seperate code and dependencies
 
@@ -56,6 +57,7 @@ $ touch dev.json prod.json
 ```
 
 #### Sample dev.json file
+
 ```json
 {
   "host": "myhostname",
@@ -63,7 +65,6 @@ $ touch dev.json prod.json
   "passwd": "$3c12ET",
   "db": "mydatabase"
 }
-
 ```
 
 ### Now add data as json in both the documents and zip recursively with layer folder as root and upload on AWS as a layer
@@ -73,7 +74,8 @@ $ zip -r data_layer.zip .
 ```
 
 ### The data folder is mounted under /opt/ whenever a new lambda instance is fired up, so the files will be accessable from /opt/data/
-#### Attach the data layer to the lambda function, then you  can acccess the credentials
+
+#### Attach the data layer to the lambda function, then you can acccess the credentials
 
 ```python
 import json
@@ -86,10 +88,10 @@ def lambda_handler(event, context):
     db_config = {}
     with open('/opt/data/dev.json') as db_json:
         db_config = json.load(db_json)
-    
+
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
-    
+
     try:
         # unpack dict as parameters
         conn = pymysql.connect(**db_config)
@@ -97,9 +99,9 @@ def lambda_handler(event, context):
         logger.error(
             "ERROR: Unexpected error: Could not connect to MySql instance.")
         sys.exit()
-    
+
     logger.info("SUCCESS: Connection to RDS mysql instance succeeded")
-    
+
     return {
         'statusCode': 200,
         'body': json.dumps('Hello from Lambda!')
