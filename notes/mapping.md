@@ -6,7 +6,7 @@ There is a feature called Lambda Proxy integration which when turned on, automat
 
 Their default mapping for requests looks something like this
 
-```json
+```js
 {
   "resource": "/users/single",
   "path": "/users/single",
