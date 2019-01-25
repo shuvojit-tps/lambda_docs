@@ -1,6 +1,6 @@
 # aws-cli cheatsheet
 
-## Stage Invoke Permissions
+### 1. Stage Invoke Permissions
 
 When you use alias and \${stageVariables.env} in your APIGateway+Lambda, you need to manually add permissions to all of your stages.
 
