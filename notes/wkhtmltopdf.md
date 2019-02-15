@@ -1,6 +1,6 @@
 # running wkhtmltopdf on lambda
 
-As it's know, packing pip libraries and native libraries are different, and wkhtmltopdf is a native library. Installing it on aws lambda has a specific set of things that needs to be done.
+As we know, packing pip libraries and native libraries are different, and wkhtmltopdf is a native library. Installing it on aws lambda has a specific set of things that needs to be done.
 
 ## Compiling binaries
 
